@@ -37,37 +37,23 @@ Na física e na engenharia, sistemas dinâmicos são frequentemente modelados po
 
 Para sistemas lineares invariantes no tempo (LIT), existe uma transformação que converte operadores diferenciais em operadores algébricos: a Transformada de Laplace. Essa transformação introduz o domínio complexo
 
-$$
-s = \sigma + j\omega,
-$$
+```math
+s = \sigma + j\omega
+```
 
 onde $\sigma \in \mathbb{R}$ representa a parte real e $\omega \in \mathbb{R}$ representa a frequência angular.
 
 Considere um sistema LIT descrito pela equação diferencial linear
 
-$$
-\frac{d^n y(t)}{dt^n}
-+ a_1 \frac{d^{n-1}y(t)}{dt^{n-1}}
-+ \cdots
-+ a_{n-1}\dot{y}(t)
-+ a_n y(t)
-=
-b_0 \frac{d^m u(t)}{dt^m}
-+ b_1 \frac{d^{m-1}u(t)}{dt^{m-1}}
-+ \cdots
-+ b_{m-1}\dot{u}(t)
-+ b_m u(t).
-$$
+```math
+\frac{d^n y(t)}{dt^n} + a_1 \frac{d^{n-1}y(t)}{dt^{n-1}} + \cdots + a_{n-1}\dot{y}(t) + a_n y(t) = b_0 \frac{d^m u(t)}{dt^m} + b_1 \frac{d^{m-1}u(t)}{dt^{m-1}} + \cdots + b_{m-1}\dot{u}(t) + b_m u(t)
+```
 
 onde
 
-$$
-a_i,b_j \in \mathbb{R},
-\qquad
-i=1,\dots,n,
-\qquad
-j=0,\dots,m.
-$$
+```math
+a_i,b_j \in \mathbb{R}, \qquad i=1,\dots,n, \qquad j=0,\dots,m
+```
 
 e $u(t)$ e $y(t)$ representam, respectivamente, a entrada e a saída do sistema.
 
@@ -75,37 +61,29 @@ e $u(t)$ e $y(t)$ representam, respectivamente, a entrada e a saída do sistema.
 
 Definimos a Transformada de Laplace unilateral de uma função $g:[0,\infty)\to\mathbb{R}$ por
 
-$$
-\mathcal{L}\{g(t)\}
-=
-G(s)
-=
-\int_{0^-}^{\infty} e^{-st} g(t)\,dt,
-$$
+```math
+\mathcal{L}\{g(t)\} = G(s) = \int_{0^-}^{\infty} e^{-st} g(t)\,dt
+```
 
 para valores de $s$ tais que a integral convirja.
 
 Se $g(t)$ é contínua por partes e possui crescimento no máximo exponencial, isto é, existem constantes $M,a>0$ tais que
 
-$$
-|g(t)| \leq M e^{at},
-$$
+```math
+|g(t)| \leq M e^{at}
+```
 
 então sua transformada de Laplace existe para
 
-$$
-\mathrm{Re}(s) > a.
-$$
+```math
+\mathrm{Re}(s) > a
+```
 
 Além disso, sob essas hipóteses, a transformada possui inversa dada pela fórmula de Bromwich:
 
-$$
-g(t)
-=
-\frac{1}{2\pi j}
-\int_{\sigma-j\infty}^{\sigma+j\infty}
-G(s)e^{st}\,ds.
-$$
+```math
+g(t) = \frac{1}{2\pi j} \int_{\sigma-j\infty}^{\sigma+j\infty} G(s)e^{st}\,ds
+```
 
 onde $\sigma$ é escolhido na região de convergência de $G(s)$.
 
@@ -120,23 +98,15 @@ Em outras palavras, ela preserva a estrutura algébrica do problema: operações
 
 Assumindo condições iniciais nulas, valem as propriedades fundamentais:
 
-$$
-\mathcal{L}\left\{
-\frac{d y(t)}{dt}
-\right\}
-=
-sY(s),
-$$
+```math
+\mathcal{L}\left\{ \frac{d y(t)}{dt} \right\} = sY(s)
+```
 
 e
 
-$$
-\mathcal{L}\left\{
-\int_0^t y(\tau)\,d\tau
-\right\}
-=
-\frac{1}{s}Y(s).
-$$
+```math
+\mathcal{L}\left\{ \int_0^t y(\tau)\,d\tau \right\} = \frac{1}{s}Y(s)
+```
 
 Assim, no domínio de Laplace:
 
@@ -149,29 +119,25 @@ Assim, no domínio de Laplace:
 
 Como
 
-$$
-\mathcal{L}\left\{
-\frac{dy(t)}{dt}
-\right\}
-=
-sY(s),
-$$
+```math
+\mathcal{L}\left\{ \frac{dy(t)}{dt} \right\} = sY(s)
+```
 
 o ganho do operador derivativo cresce proporcionalmente a $|s|$.
 
 No eixo imaginário ($s=j\omega$),
 
-$$
-|s| = \omega.
-$$
+```math
+|s| = \omega
+```
 
 Logo, componentes de alta frequência são amplificadas pelo termo derivativo. Em particular, ruídos de medição — que normalmente possuem conteúdo espectral em altas frequências — podem produzir sinais de controle excessivamente grandes.
 
 Por essa razão, na implementação prática de controladores PID utiliza-se um derivador filtrado, por exemplo,
 
-$$
-K_D \frac{s}{\tau_D s + 1},
-$$
+```math
+K_D \frac{s}{\tau_D s + 1}
+```
 
 que corresponde a um filtro passa-baixas aplicado ao termo derivativo. Esse filtro limita o ganho em altas frequências e reduz a amplificação de ruído.
 
@@ -181,23 +147,17 @@ que corresponde a um filtro passa-baixas aplicado ao termo derivativo. Esse filt
 
 Como
 
-$$
-\mathcal{L}\left\{
-\int_0^t y(\tau)\,d\tau
-\right\}
-=
-\frac{1}{s}Y(s),
-$$
+```math
+\mathcal{L}\left\{ \int_0^t y(\tau)\,d\tau \right\} = \frac{1}{s}Y(s)
+```
 
 o ganho do operador integral cresce quando $|s|\to 0$.
 
 No eixo imaginário ($s=j\omega$),
 
-$$
-\left|\frac{1}{s}\right|
-=
-\frac{1}{\omega}.
-$$
+```math
+\left|\frac{1}{s}\right| = \frac{1}{\omega}
+```
 
 Assim, sinais de baixa frequência — especialmente sinais constantes — são acumulados indefinidamente pela integral.
 
