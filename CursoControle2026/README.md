@@ -1,11 +1,45 @@
-# Aprofundamento em sistemas cyberfísicos
+# Control Lecture to for Skyrats 2026: From Zero to Hero
 
-Nesta atividade, iremos explorar aspectos de controle de sistemas dinâmicos, implementação realista de controle PID e a solução do exercício proposto na aula 3.
+Nesta aula, iremos explorar aspectos de controle de sistemas dinâmicos, implementação realista de controle PID e o seguimento trajetória quadrado perfeito.
 
 Nesse texto, os tópicos são introduzidos de maniera breve e direta sendo recomendado ao leitor ou leitora uma leitura mais aprofundada na referência: Controle Automático (Castrucci) -  2 Edição.
 
 ## 1. Introdução ao controle de sistemas dinâmicos
-### 1.1 O significado de controlar e nomeclatura
+
+### 1.1 Sistemas dinâmicos
+
+Um sistema é composto por um conjunto de objetos que se relacionam entre si por meio de relações de causa e efeito \cite{MonteiroSistemasDinamicos}.
+
+Ex: Um motor elétrico é um sistema pois é composto de multiplas peças associadas de tal maneira que quando da alimentação de energia elétrica gera um movimento rotacional mecânico em seu eixo. (conjunto de objetos, cause e efeito).
+
+Um sistema é dito dinâmico quando pelo menos uma de suas grandezas de interesse (estados) varia no tempo vaira no tempo.
+
+Ex: Um motor elétrico pode ser modelado como um sistema dinâmico considerando-se a velocidade do seu eixo variando no tempo $\omega(t)$ [rad/s].
+
+Quando dizemos que um sistema tem "dinâmica lenta/rápida" queremos dizer que os estados do sistema variam lentamente/rapidamente no tempo comparado com uma unidade de tempo padrão.
+
+Unidades de tempo padrão podem ser: tempos de outros sistemas, tempo de atuação de um atuador do sistema, tempo de sensoriamento de um sensor do sistema, tempo de amostragem do sistema.
+
+Um sistema é dito dinâmico quando pelo menos uma de suas grandezas de interesse (estados $x(t)$) varia no tempo.
+
+Consequentemente, é natural esperar que as equações dos estados $x(t)$ de sistemas dinâmicos sejam da forma
+
+
+$\cfrac{dx(t)}{dt} = \dot{x}(t) = f(x(t))$ (1)
+
+
+onde $f(.)$ é uma função dos estados $x(t)$ que variam no tempo $t$ com taxa de variação (derivada) $\dot{x}$. Em geral $f(.)$ é não linear e é um modelo do sistema, isto é, uma função que captura as principais propriedades de um sistema.
+
+
+### 1.2 Transformada de Laplace como um isomorfismo entre o espaço de sistemas LIT e espaço de funções polinômiais racionais
+
+Na física e na engenharia, sistemas dinâmicos são frequentemente representados por equações diferenciais. Mas, equações diferenciais no domínio do tempo $t$ são difíceis, e certos fenômenos são melhor entendidos no domínio da frequência $s = a + j\omega$.
+
+Vamos considerar sistemas LIT (Linear Invariante no Tempo). Então (1) se transforma em
+
+
+
+### 1.3 O significado de controlar e nomeclatura
 
 A ideia de controle automático é muito antiga, mas popularmente considera-se o regulador de Watt como sendo o primeiro controlador automático da humanidade.
 
