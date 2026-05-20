@@ -37,7 +37,7 @@ Na física e na engenharia, sistemas dinâmicos são frequentemente representado
 
 Vamos considerar sistemas LIT (Linear Invariante no Tempo). Então (1) se transforma em
 
-$\cfrac{d^ny(t)}{dt^n} + a_1 \cfrac{d^{n-1}y(t)}{dt^{n-1}}$ + \cdots + a_{n-1} \dot{y}(t) + a_n y(t) = 
+$\cfrac{d^m y(t)}{dt^m} + a_1 \cfrac{d^{m-1}y(t)}{dt^{m-1}}$ + ... + a_{m-1} \dot{y}(t) + a_m y(t) = \cfrac{d^m u(t)}{dt^m} + b_1 \cfrac{d^{m-1}u(t)}{dt^{m-1}}$ + ... + b_{m-1} \dot{u}(t) + b_m u(t)$
 
 ### 1.3 O significado de controlar e nomeclatura
 
