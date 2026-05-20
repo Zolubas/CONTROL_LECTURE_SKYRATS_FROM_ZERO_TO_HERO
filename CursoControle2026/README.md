@@ -31,33 +31,184 @@ $\cfrac{dx(t)}{dt} = \dot{x}(t) = f(x(t))$ (1)
 onde $f(.)$ é uma função dos estados $x(t)$ que variam no tempo $t$ com taxa de variação (derivada) $\dot{x}$. Em geral $f(.)$ é não linear e é um modelo do sistema, isto é, uma função que captura as principais propriedades de um sistema.
 
 
-### 1.2 Transformada de Laplace como um isomorfismo entre o espaço de sistemas LIT e espaço de funções polinômiais racionais
+### 1.2 Transformada de Laplace como um isomorfismo entre o espaço de sistemas LIT e o espaço de funções racionais
 
-Na física e na engenharia, sistemas dinâmicos são frequentemente representados por equações diferenciais. Mas, equações diferenciais no domínio do tempo $t$ são difíceis, e certos fenômenos são melhor entendidos no domínio da frequência $s = a + j\omega$.
+Na física e na engenharia, sistemas dinâmicos são frequentemente modelados por equações diferenciais no domínio do tempo $t$. Entretanto, manipular diretamente equações diferenciais pode ser difícil, principalmente quando se deseja analisar estabilidade, resposta em frequência ou projetar controladores.  
 
-Vamos considerar sistemas LIT (Linear Invariante no Tempo). Então (1) se transforma em
+Para sistemas lineares invariantes no tempo (LIT), existe uma transformação que converte operadores diferenciais em operadores algébricos: a Transformada de Laplace. Essa transformação introduz o domínio complexo
 
-$\cfrac{d^n y(t)}{dt^n} + a_1 \cfrac{d^{n-1}y(t)}{dt^{n-1}} + ... + a_{n-1} \dot{y}(t) + a_n y(t) = \cfrac{d^m u(t)}{dt^m} + b_1 \cfrac{d^{m-1}u(t)}{dt^{m-1}} + ... + b_{m-1} \dot{u}(t) + b_m u(t)$
+$$
+s = \sigma + j\omega,
+$$
 
-onde os parameteros $a_i$ e $b_j$ com $i \in [1,...,n]$ e $j \in [1,...,m]$ são constantes.
+onde $\sigma \in \mathbb{R}$ representa a parte real e $\omega \in \mathbb{R}$ representa a frequência angular.
 
-Sistemas LIT cuja função y(t) tem crescimento no máximo exponencial e é suave por partes podem ser transformados pela transformada de Laplace de forma que a transformada de Laplace possui inversa e é um isomorfismo, isto é, uma Transformação Linear que transporta elementos do espaço de funções de sistemas LIT suaves por partes com crescimento no máximo exponencial para o espaço de frações racionais de polinomios. Dessa forma, operações sobre objetos no espaço de equações integro-diferencias com essas propriedades se torna equivalente a operações sobre objetos no espaço de polinômios, que em geral são mais fáceis de serem feitas.  
+Considere um sistema LIT descrito pela equação diferencial linear
 
-A transformada de Laplace é
+$$
+\frac{d^n y(t)}{dt^n}
++ a_1 \frac{d^{n-1}y(t)}{dt^{n-1}}
++ \cdots
++ a_{n-1}\dot y(t)
++ a_n y(t)
+=
+b_0 \frac{d^m u(t)}{dt^m}
++ b_1 \frac{d^{m-1}u(t)}{dt^{m-1}}
++ \cdots
++ b_{m-1}\dot u(t)
++ b_m u(t),
+$$
 
-$\mathcal{L}[g(t)]=G(s)=\int_{0_{-}}^{\infty} e^{-st} f(t) dt$
+onde
 
-E a inversa de Laplace é (tem que existir inversa para haver isomorfismo)
+$$
+a_i,b_j \in \mathbb{R},
+\qquad
+i=1,\dots,n,
+\qquad
+j=0,\dots,m,
+$$
 
-$g(t) = \cfrac{1}{2 \pi j} \int_{\sigma - j \infty}^{\sigma + j \infty} G(s)ds$
+e $u(t)$ e $y(t)$ representam, respectivamente, a entrada e a saída do sistema.
 
-Assim
+---
 
-No dominio do tempo (espaço de sistemas LIT) $\cfrac{dy(t)}{dt} \rightarrow sY(s)$ No domínio da frequência (espaço de polinômios)
+Definimos a Transformada de Laplace unilateral de uma função $g:[0,\infty)\to\mathbb{R}$ por
 
-No dominio do tempo (espaço de sistemas LIT) $\int{y(t)}dt \rightarrow \cfrac{1}{s}Y(s)$  No domínio da frequência (espaço de polinômios)
+$$
+\mathcal{L}\{g(t)\}
+=
+G(s)
+=
+\int_{0^-}^{\infty} e^{-st} g(t)\,dt,
+$$
 
+para valores de $s$ tais que a integral convirja.
 
+Se $g(t)$ é contínua por partes e possui crescimento no máximo exponencial, isto é, existem constantes $M,a>0$ tais que
+
+$$
+|g(t)| \leq M e^{at},
+$$
+
+então sua transformada de Laplace existe para $\operatorname{Re}(s)>a$.
+
+Além disso, sob essas hipóteses, a transformada possui inversa dada pela fórmula de Bromwich:
+
+$$
+g(t)
+=
+\frac{1}{2\pi j}
+\int_{\sigma-j\infty}^{\sigma+j\infty}
+G(s)e^{st}\,ds,
+$$
+
+onde $\sigma$ é escolhido na região de convergência de $G(s)$.
+
+---
+
+Dessa forma, a Transformada de Laplace estabelece um isomorfismo entre:
+
+- um espaço de funções suficientemente regulares associadas a sistemas LIT;
+- e um espaço de funções racionais em $s$.
+
+Em outras palavras, ela preserva a estrutura algébrica do problema: operações diferenciais e integrais no domínio do tempo tornam-se operações algébricas no domínio $s$.
+
+Assumindo condições iniciais nulas, valem as propriedades fundamentais:
+
+$$
+\mathcal{L}\left\{
+\frac{d y(t)}{dt}
+\right\}
+=
+sY(s),
+$$
+
+e
+
+$$
+\mathcal{L}\left\{
+\int_0^t y(\tau)\,d\tau
+\right\}
+=
+\frac{1}{s}Y(s).
+$$
+
+Assim, no domínio de Laplace:
+
+- o operador derivada $\dfrac{d}{dt}$ é representado por multiplicação por $s$;
+- o operador integral é representado por multiplicação por $\dfrac{1}{s}$.
+
+---
+
+Essas representações tornam evidentes duas propriedades fundamentais importantes para a implementação prática de controladores PID.
+
+### I) Amplificação de altas frequências pelo termo derivativo
+
+Como
+
+$$
+\mathcal{L}\left\{
+\frac{dy(t)}{dt}
+\right\}
+=
+sY(s),
+$$
+
+o ganho do operador derivativo cresce proporcionalmente a $|s|$.
+
+No eixo imaginário ($s=j\omega$),
+
+$$
+|s| = \omega.
+$$
+
+Logo, componentes de alta frequência são amplificadas pelo termo derivativo. Em particular, ruídos de medição — que normalmente possuem conteúdo espectral em altas frequências — podem produzir sinais de controle excessivamente grandes.
+
+Por essa razão, na implementação prática de controladores PID utiliza-se um derivador filtrado, por exemplo,
+
+$$
+K_D \frac{s}{\tau_D s + 1},
+$$
+
+que corresponde a um filtro passa-baixas aplicado ao termo derivativo. Esse filtro limita o ganho em altas frequências e reduz a amplificação de ruído.
+
+### II) Amplificação de baixas frequências pelo termo integral
+
+Como
+
+$$
+\mathcal{L}\left\{
+\int_0^t y(\tau)\,d\tau
+\right\}
+=
+\frac{1}{s}Y(s),
+$$
+
+o ganho do operador integral cresce quando $|s|\to 0$.
+
+No eixo imaginário ($s=j\omega$),
+
+$$
+\left|\frac{1}{s}\right|
+=
+\frac{1}{\omega}.
+$$
+
+Assim, sinais de baixa frequência — especialmente sinais constantes — são acumulados indefinidamente pela integral.
+
+Fisicamente, isso explica por que o termo integral elimina erro estacionário: um erro constante é continuamente acumulado até que o controlador produza a ação necessária para cancelá-lo.
+
+Entretanto, em implementações reais, essa acumulação pode levar ao fenômeno de *integral windup*, no qual o integrador cresce excessivamente devido a saturações do atuador.
+
+Por isso, implementações práticas de PID utilizam mecanismos de anti-windup, tais como:
+
+- saturação do estado integrador;
+- limitação do termo integral;
+- realimentação de anti-windup (*back-calculation*);
+- desligamento condicional da integração.
+
+Dessa forma, evita-se que o integrador acumule valores indefinidamente quando o sistema não consegue mais responder ao comando de controle.
 
 ### 1.3 O significado de controlar e nomeclatura
 
