@@ -131,7 +131,7 @@ No eixo imaginário $s=j\omega$:
 |s| = |j\omega| = \omega
 ```
 
-Logo, componentes de alta frequência são amplificadas pelo termo derivativo.
+Logo, componentes de alta frequência $\omega$ são amplificadas pelo termo derivativo.
 
 Isso explica por que ruídos de medição — que normalmente possuem conteúdo espectral concentrado em altas frequências — podem produzir sinais de controle excessivamente grandes quando diferenciados.
 
