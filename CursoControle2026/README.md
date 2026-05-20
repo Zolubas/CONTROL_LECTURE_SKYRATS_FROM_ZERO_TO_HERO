@@ -37,7 +37,12 @@ Na física e na engenharia, sistemas dinâmicos são frequentemente representado
 
 Vamos considerar sistemas LIT (Linear Invariante no Tempo). Então (1) se transforma em
 
-$\cfrac{d^n y(t)}{dt^n} + a_1 \cfrac{d^{n-1}y(t)}{dt^{n-1}} + ... + a_{n-1} \dot{y}(t) + a_n y(t) = \cfrac{d^m u(t)}{dt^m} + b_1 \cfrac{d^{m-1}u(t)}{dt^{m-1}}$ + ... + b_{m-1} \dot{u}(t) + b_m u(t)$
+$\cfrac{d^n y(t)}{dt^n} + a_1 \cfrac{d^{n-1}y(t)}{dt^{n-1}} + ... + a_{n-1} \dot{y}(t) + a_n y(t) = \cfrac{d^m u(t)}{dt^m} + b_1 \cfrac{d^{m-1}u(t)}{dt^{m-1}} + ... + b_{m-1} \dot{u}(t) + b_m u(t)$
+
+onde os parameteros $a_i$ e $b_j$ com $i \in [1,...,n]$ e $j \in [1,...,m]$ são constantes.
+
+Sistemas LIT cuja função y(t) tem crescimento no máximo exponencial e é suave por partes podem ser transformados pela transformada de Laplace de forma que a transformada de Laplace possui inversa e é um isomorfismo, isto é, uma Transformação Linear que transporta elementos do espaço de funções de sistemas LIT suaves por partes com crescimento no máximo exponencial para o espaço de frações racionais de polinomios. Dessa forma, operações sobre objetos no espaço de equações integro-diferencias com essas propriedades se torna equivalente a operações sobre objetos no espaço de polinômios, que em geral são mais fáceis de serem feitas.  
+
 
 ### 1.3 O significado de controlar e nomeclatura
 
