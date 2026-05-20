@@ -45,7 +45,7 @@ Sistemas LIT cuja função y(t) tem crescimento no máximo exponencial e é suav
 
 A transformada de Laplace é
 
-$\mathcal{L}$
+$\mathscr{L}$
 
 Assim
 
