@@ -49,13 +49,13 @@ $\mathcal{L}[g(t)]=G(s)=\int_{0_{-}}^{\infty} e^{-st} f(t) dt$
 
 E a inversa de Laplace é (tem que existir inversa para haver isomorfismo)
 
-$g(t) = \cfrac{1}{2 \pi j} \int_{\sigma - j \infty}^{\sigma + j \infty} G(s)ds
+$g(t) = \cfrac{1}{2 \pi j} \int_{\sigma - j \infty}^{\sigma + j \infty} G(s)ds$
 
 Assim
 
-No dominio do tempo (espaço de sistemas LIT) $\cfrac{dy(t)}{dt} \rightarrow s$ No domínio da frequência (espaço de polinômios)
+No dominio do tempo (espaço de sistemas LIT) $\cfrac{dy(t)}{dt} \rightarrow sY(s)$ No domínio da frequência (espaço de polinômios)
 
-No dominio do tempo (espaço de sistemas LIT) $\int{y(t)}dt \rightarrow \cfrac{1}{s}$  No domínio da frequência (espaço de polinômios)
+No dominio do tempo (espaço de sistemas LIT) $\int{y(t)}dt \rightarrow \cfrac{1}{s}Y(s)$  No domínio da frequência (espaço de polinômios)
 
 
 
