@@ -125,21 +125,31 @@ Como
 
 o ganho do operador derivativo cresce proporcionalmente a $|s|$.
 
-No eixo imaginário ($s=j\omega$),
+No eixo imaginário $s=j\omega$:
 
 ```math
-|s| = \omega
+|s| = |j\omega| = \omega
 ```
 
-Logo, componentes de alta frequência são amplificadas pelo termo derivativo. Em particular, ruídos de medição — que normalmente possuem conteúdo espectral em altas frequências — podem produzir sinais de controle excessivamente grandes.
+Logo, componentes de alta frequência são amplificadas pelo termo derivativo.
 
-Por essa razão, na implementação prática de controladores PID utiliza-se um derivador filtrado, por exemplo,
+Isso explica por que ruídos de medição — que normalmente possuem conteúdo espectral concentrado em altas frequências — podem produzir sinais de controle excessivamente grandes quando diferenciados.
+
+Por essa razão, implementações práticas de PID utilizam derivadores filtrados, por exemplo,
 
 ```math
 K_D \frac{s}{\tau_D s + 1}
 ```
 
-que corresponde a um filtro passa-baixas aplicado ao termo derivativo. Esse filtro limita o ganho em altas frequências e reduz a amplificação de ruído.
+que equivalem a um filtro passa-baixas aplicado ao termo derivativo.
+
+Quando $\omega \to \infty$:
+
+```math
+\left|K_D \frac{j\omega}{1+\tau_D j\omega}\right| \to \frac{K_D}{\tau_D}
+```
+
+ou seja, o ganho permanece limitado.
 
 ---
 
@@ -151,19 +161,19 @@ Como
 \mathcal{L}\left\{ \int_0^t y(\tau)\,d\tau \right\} = \frac{1}{s}Y(s)
 ```
 
-o ganho do operador integral cresce quando $|s|\to 0$.
+o ganho do operador integral cresce quando $|s| \to 0$.
 
-No eixo imaginário ($s=j\omega$),
+No eixo imaginário $s=j\omega$:
 
 ```math
-\left|\frac{1}{s}\right| = \frac{1}{\omega}
+\left|\frac{1}{s}\right| = \frac{1}{|j\omega|} = \frac{1}{\omega}
 ```
 
-Assim, sinais de baixa frequência — especialmente sinais constantes — são acumulados indefinidamente pela integral.
+Logo, sinais de baixa frequência — especialmente sinais constantes — são acumulados indefinidamente pela integral.
 
-Fisicamente, isso explica por que o termo integral elimina erro estacionário: um erro constante é continuamente acumulado até que o controlador produza a ação necessária para cancelá-lo.
+Fisicamente, isso explica por que o termo integral elimina erro estacionário: um erro constante é continuamente acumulado até produzir a ação de controle necessária para cancelar esse erro.
 
-Entretanto, em implementações reais, essa acumulação pode levar ao fenômeno de *integral windup*, no qual o integrador cresce excessivamente devido a saturações do atuador.
+Entretanto, em implementações reais, essa acumulação pode levar ao fenômeno de *integral windup*, no qual o integrador cresce excessivamente devido à saturação do atuador.
 
 Por isso, implementações práticas de PID utilizam mecanismos de anti-windup, tais como:
 
@@ -172,7 +182,81 @@ Por isso, implementações práticas de PID utilizam mecanismos de anti-windup, 
 - realimentação de anti-windup (*back-calculation*);
 - desligamento condicional da integração.
 
-Dessa forma, evita-se que o integrador acumule valores indefinidamente quando o sistema não consegue mais responder ao comando de controle.
+---
+
+## 1.3 Ganho e fase de uma função de transferência
+
+Uma função de transferência é uma função complexa
+
+```math
+G(s):\mathbb{C}\to\mathbb{C}
+```
+
+e, portanto, pode ser escrita na forma polar:
+
+```math
+G(s) = |G(s)|e^{j\angle G(s)}
+```
+
+onde:
+
+- $|G(s)|$ é o módulo ou ganho;
+- $\angle G(s)$ é o argumento ou fase.
+
+O módulo é definido por
+
+```math
+|G(s)| = \sqrt{\mathrm{Re}(G(s))^2 + \mathrm{Im}(G(s))^2}
+```
+
+e a fase por
+
+```math
+\angle G(s) = \arctan\left(\frac{\mathrm{Im}(G(s))}{\mathrm{Re}(G(s))}\right)
+```
+
+Na análise em frequência, avalia-se a função de transferência sobre o eixo imaginário:
+
+```math
+s=j\omega
+```
+
+Assim:
+
+```math
+G(j\omega) = |G(j\omega)|e^{j\angle G(j\omega)}
+```
+
+Considere uma entrada senoidal
+
+```math
+u(t)=A\sin(\omega t)
+```
+
+Para sistemas LIT estáveis, a saída em regime permanente será
+
+```math
+y(t)=|G(j\omega)|A\sin(\omega t+\angle G(j\omega))
+```
+
+Portanto:
+
+- o ganho $|G(j\omega)|$ multiplica a amplitude da senoide de entrada;
+- a fase $\angle G(j\omega)$ produz um avanço ou atraso angular na saída.
+
+Observe que a fase não corresponde exatamente a um atraso temporal constante para sinais arbitrários. Entretanto, para uma senoide de frequência fixa $\omega$, um deslocamento de fase $\phi$ equivale a um deslocamento temporal
+
+```math
+\tau = -\frac{\phi}{\omega}
+```
+
+de modo que
+
+```math
+y(t)=|G(j\omega)|u(t-\tau)
+```
+
+para sinais senoidais em regime permanente.
 
 ### 1.3 O significado de controlar e nomeclatura
 
