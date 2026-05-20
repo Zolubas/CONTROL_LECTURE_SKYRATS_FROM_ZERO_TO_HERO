@@ -31,9 +31,9 @@ $\cfrac{dx(t)}{dt} = \dot{x}(t) = f(x(t))$ (1)
 onde $f(.)$ é uma função dos estados $x(t)$ que variam no tempo $t$ com taxa de variação (derivada) $\dot{x}$. Em geral $f(.)$ é não linear e é um modelo do sistema, isto é, uma função que captura as principais propriedades de um sistema.
 
 
-### 1.2 Transformada de Laplace como um isomorfismo entre o espaço de sistemas LIT e o espaço de funções racionais
+## 1.2 Transformada de Laplace como um isomorfismo entre o espaço de sistemas LIT e o espaço de funções racionais
 
-Na física e na engenharia, sistemas dinâmicos são frequentemente modelados por equações diferenciais no domínio do tempo $t$. Entretanto, manipular diretamente equações diferenciais pode ser difícil, principalmente quando se deseja analisar estabilidade, resposta em frequência ou projetar controladores.  
+Na física e na engenharia, sistemas dinâmicos são frequentemente modelados por equações diferenciais no domínio do tempo $t$. Entretanto, manipular diretamente equações diferenciais pode ser difícil, principalmente quando se deseja analisar estabilidade, resposta em frequência ou projetar controladores.
 
 Para sistemas lineares invariantes no tempo (LIT), existe uma transformação que converte operadores diferenciais em operadores algébricos: a Transformada de Laplace. Essa transformação introduz o domínio complexo
 
@@ -49,14 +49,14 @@ $$
 \frac{d^n y(t)}{dt^n}
 + a_1 \frac{d^{n-1}y(t)}{dt^{n-1}}
 + \cdots
-+ a_{n-1}\dot y(t)
++ a_{n-1}\dot{y}(t)
 + a_n y(t)
 =
 b_0 \frac{d^m u(t)}{dt^m}
 + b_1 \frac{d^{m-1}u(t)}{dt^{m-1}}
 + \cdots
-+ b_{m-1}\dot u(t)
-+ b_m u(t),
++ b_{m-1}\dot{u}(t)
++ b_m u(t).
 $$
 
 onde
@@ -66,7 +66,7 @@ a_i,b_j \in \mathbb{R},
 \qquad
 i=1,\dots,n,
 \qquad
-j=0,\dots,m,
+j=0,\dots,m.
 $$
 
 e $u(t)$ e $y(t)$ representam, respectivamente, a entrada e a saída do sistema.
@@ -91,7 +91,11 @@ $$
 |g(t)| \leq M e^{at},
 $$
 
-então sua transformada de Laplace existe para $\operatorname{Re}(s)>a$.
+então sua transformada de Laplace existe para
+
+$$
+\mathrm{Re}(s) > a.
+$$
 
 Além disso, sob essas hipóteses, a transformada possui inversa dada pela fórmula de Bromwich:
 
@@ -100,7 +104,7 @@ g(t)
 =
 \frac{1}{2\pi j}
 \int_{\sigma-j\infty}^{\sigma+j\infty}
-G(s)e^{st}\,ds,
+G(s)e^{st}\,ds.
 $$
 
 onde $\sigma$ é escolhido na região de convergência de $G(s)$.
@@ -110,7 +114,7 @@ onde $\sigma$ é escolhido na região de convergência de $G(s)$.
 Dessa forma, a Transformada de Laplace estabelece um isomorfismo entre:
 
 - um espaço de funções suficientemente regulares associadas a sistemas LIT;
-- e um espaço de funções racionais em $s$.
+- um espaço de funções racionais em $s$.
 
 Em outras palavras, ela preserva a estrutura algébrica do problema: operações diferenciais e integrais no domínio do tempo tornam-se operações algébricas no domínio $s$.
 
@@ -141,8 +145,6 @@ Assim, no domínio de Laplace:
 
 ---
 
-Essas representações tornam evidentes duas propriedades fundamentais importantes para a implementação prática de controladores PID.
-
 ### I) Amplificação de altas frequências pelo termo derivativo
 
 Como
@@ -172,6 +174,8 @@ K_D \frac{s}{\tau_D s + 1},
 $$
 
 que corresponde a um filtro passa-baixas aplicado ao termo derivativo. Esse filtro limita o ganho em altas frequências e reduz a amplificação de ruído.
+
+---
 
 ### II) Amplificação de baixas frequências pelo termo integral
 
