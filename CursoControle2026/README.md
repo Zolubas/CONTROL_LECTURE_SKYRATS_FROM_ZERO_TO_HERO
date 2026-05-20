@@ -43,11 +43,16 @@ onde os parameteros $a_i$ e $b_j$ com $i \in [1,...,n]$ e $j \in [1,...,m]$ são
 
 Sistemas LIT cuja função y(t) tem crescimento no máximo exponencial e é suave por partes podem ser transformados pela transformada de Laplace de forma que a transformada de Laplace possui inversa e é um isomorfismo, isto é, uma Transformação Linear que transporta elementos do espaço de funções de sistemas LIT suaves por partes com crescimento no máximo exponencial para o espaço de frações racionais de polinomios. Dessa forma, operações sobre objetos no espaço de equações integro-diferencias com essas propriedades se torna equivalente a operações sobre objetos no espaço de polinômios, que em geral são mais fáceis de serem feitas.  
 
+A transformada de Laplace é
+
+$\mathcal{L}$
+
 Assim
 
-$\cfrac{dy(t)}{dt} \rightarrow s$
+No dominio do tempo (espaço de sistemas LIT) $\cfrac{dy(t)}{dt} \rightarrow s$ No domínio da frequência (espaço de polinômios)
 
-$\int{y(t)}dt \rightarrow \cfcac{1}{s}$
+No dominio do tempo (espaço de sistemas LIT) $\int{y(t)}dt \rightarrow \cfrac{1}{s}$  No domínio da frequência (espaço de polinômios)
+
 
 
 ### 1.3 O significado de controlar e nomeclatura
