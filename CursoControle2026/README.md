@@ -45,7 +45,11 @@ Sistemas LIT cuja função y(t) tem crescimento no máximo exponencial e é suav
 
 A transformada de Laplace é
 
-$\mathscr{L}$
+$\mathcal{L}[g(t)]=G(s)=\int_{0_{-}}^{\infty} e^{-st} f(t) dt$
+
+E a inversa de Laplace é (tem que existir inversa para haver isomorfismo)
+
+$g(t) = \cfrac{1}{2 \pi j} \int_{\sigma - j \infty}^{\sigma + j \infty} G(s)ds
 
 Assim
 
