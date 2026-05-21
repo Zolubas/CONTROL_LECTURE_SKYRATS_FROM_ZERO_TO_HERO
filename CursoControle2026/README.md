@@ -2,7 +2,7 @@
 
 Nesta aula, iremos explorar aspectos de controle de sistemas dinâmicos, implementação realista de controle PID e o seguimento trajetória quadrado perfeito.
 
-Nesse texto, os tópicos são introduzidos de maniera breve e direta sendo recomendado ao leitor ou leitora uma leitura mais aprofundada na referência: Controle Automático (Castrucci) -  2 Edição.
+Nesse texto, os tópicos são introduzidos de maniera breve e direta sendo recomendado ao leitor ou leitora uma leitura mais aprofundada na referência: Controle Automático (Castrucci) -  2 Edição e Controle Digital Aplicado (Bruno Augusto Angélico e Gabriel Pereira das Neves) - 1 Edição.
 
 ## 1. Introdução ao controle de sistemas dinâmicos
 
