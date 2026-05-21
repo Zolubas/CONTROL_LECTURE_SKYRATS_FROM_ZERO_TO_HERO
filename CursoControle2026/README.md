@@ -647,7 +647,7 @@ O controle PID em Laplace (domínio de frequências associado a dinâmica de tem
 
 $\cfrac{U(s)}{E(s)} = K_p(1 + \cfrac{1}{T_i s)} + \cfrac{T_D s}{\cfrac{T_D}{N}s + 1} $
 
-A parcela integral na forma de equação de diferenças é
+A parcela proporcional na forma de equação de diferenças é
 
 $\cfrac{U_p(s)}{E(s)} = K_p \Rightarrow u_p[n] = K_p e[n]$
 
@@ -662,6 +662,10 @@ $U_I(s) T_i s = Kp E(s) \implies  U_i(z)T_i \left(\cfrac{1 - z^{-1}}{T_s}\right)
 $U_I(z) - U_I(z)z^{-1} = K_p T_s E(z) \implies u_I[n]-u_I[n-1]=\cfrac{Kp T_s}{T_i} e[n]$
 
 $u_I[n]=u_I[n-1]+\cfrac{Kp T_s}{T_i} e[n]$
+
+Transformando a parcela derivaitva com polo filtrante no domínio "s" para o domínio "z" pelo método de mapeamento backward tem-se que:
+
+$\cfrac{U_D(s)}{E(s)} = \cfrac{T_D s}{\cfrac{T_D}{N}s + 1} \implies \cfrac{T_D \cfrac{z-1}{zT_s}}{\cfrac{T_D}{N}\cfrac{z-1}{zT_s} + 1}$
 
 ## 6 Breve discussão sobre identificação de sistemas
 
