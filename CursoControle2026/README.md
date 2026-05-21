@@ -227,6 +227,14 @@ Quando $\omega \to \infty$:
 
 ou seja, o ganho permanece limitado.
 
+Note também que quando $\omega \tau_D \ll 1$:
+
+```math
+\left|K_D \frac{j\omega}{1+\tau_D j\omega}\right| \approx j\omega
+```
+
+ou seja, para baixas frequências de fato a derivada filtrada é muito próxima da derivada. Mas, o que é baixa frequência? O parâmetro $\tau_D$ é usado para definir o que é baixa frequência pois ele influencia diretamente na comparação $\omega \tau_D \ll 1$.
+
 ---
 
 ### II) Amplificação de baixas frequências pelo termo integral
