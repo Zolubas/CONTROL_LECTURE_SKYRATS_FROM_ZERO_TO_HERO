@@ -673,7 +673,7 @@ Mas $\Delta e[n] = \Delta (r[n] - y[n])$ que é aproximadamente igual a $\Delta 
 
 Então
 
-$u_D[n] = u_D[n-1]\cfrac{T_D}{T_D + N T_s}(y[n]-y[n-1])$
+$u_D[n] = \cfrac{T_D}{T_D + N T_s} u_D[n-1] + \cfrac{N T_D}{T_D + N T_s} (y[n]-y[n-1])$
 
 ## 6 Breve discussão sobre identificação de sistemas
 
