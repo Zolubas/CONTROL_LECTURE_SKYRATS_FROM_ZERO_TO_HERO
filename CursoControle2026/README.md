@@ -659,9 +659,9 @@ Transformando a parcela integral do domínio "s" para o domínio "z" pelo métod
 
 $U_I(s) T_i s = Kp E(s) \implies  U_i(z)T_i \left(\cfrac{1 - z^{-1}}{T_s}\right) = K_p E(z)$
 
-$U_I(z) - U_I(z)z^{-1} = K_p T_s E(z) \implies u_I[n]-u_I[n-1]=\cfracf{Kp T_s}{T_i} e[n]$
+$U_I(z) - U_I(z)z^{-1} = K_p T_s E(z) \implies u_I[n]-u_I[n-1]=\cfrac{Kp T_s}{T_i} e[n]$
 
-$u_I[n]=u_I[n-1]+\cfracf{Kp T_s}{T_i} e[n]$
+$u_I[n]=u_I[n-1]+\cfrac{Kp T_s}{T_i} e[n]$
 
 ## 6 Breve discussão sobre identificação de sistemas
 
