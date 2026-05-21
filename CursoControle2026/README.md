@@ -10,9 +10,9 @@ Nesse texto, os tópicos são introduzidos de maniera breve e direta sendo recom
 
 Um sistema é composto por um conjunto de objetos que se relacionam entre si por meio de relações de causa e efeito \cite{MonteiroSistemasDinamicos}.
 
-Ex: Um motor elétrico é um sistema pois é composto de multiplas peças associadas de tal maneira que quando da alimentação de energia elétrica gera um movimento rotacional mecânico em seu eixo. (conjunto de objetos, cause e efeito).
+Ex: Um motor elétrico é um sistema pois é composto de multiplas peças associadas de tal maneira que quando da alimentação de energia elétrica gera um movimento rotacional mecânico em seu eixo. (conjunto de objetos, causa e efeito).
 
-Um sistema é dito dinâmico quando pelo menos uma de suas grandezas de interesse (estados) varia no tempo vaira no tempo.
+Um sistema é dito dinâmico quando pelo menos uma de suas grandezas de interesse (estados) varia no tempo.
 
 Ex: Um motor elétrico pode ser modelado como um sistema dinâmico considerando-se a velocidade do seu eixo variando no tempo $\omega(t)$ [rad/s].
 
