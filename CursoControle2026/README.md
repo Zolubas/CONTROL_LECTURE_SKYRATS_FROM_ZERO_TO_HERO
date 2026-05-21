@@ -665,7 +665,15 @@ $u_I[n]=u_I[n-1]+\cfrac{Kp T_s}{T_i} e[n]$
 
 Transformando a parcela derivaitva com polo filtrante no domínio "s" para o domínio "z" pelo método de mapeamento backward tem-se que:
 
-$\cfrac{U_D(s)}{E(s)} = \cfrac{T_D s}{\cfrac{T_D}{N}s + 1} \implies \cfrac{T_D \cfrac{z-1}{zT_s}}{\cfrac{T_D}{N}\cfrac{z-1}{zT_s} + 1}$
+$\cfrac{U_D(s)}{E(s)} = \cfrac{T_D s}{\cfrac{T_D}{N}s + 1} \implies \cfrac{U_D(z)}{E(z)} = \cfrac{T_D \cfrac{z-1}{zT_s}}{\cfrac{T_D}{N}\cfrac{z-1}{zT_s} + 1} \implies \cfrac{N T_D}{T_D + N T_s}(1-z^{-1}E(z)) = \left( 1 - z^{-1}\cfrac{T_D}{T_D + N T_s} \right) U_D(z)$
+
+$\cfrac{N T_D}{T_D + N T_s}(e[n]-e[n-1]) = u_D[n] - u_D[n-1] \cfrac{T_D}{T_D + N T_s}$
+
+Mas $\Delta e[n] = \Delta (r[n] - y[n])$ que é aproximadamente igual a $\Delta y[n]$ se r[n] é formado por degraus.
+
+Então
+
+$u_D[n] = u_D[n-1]\cfrac{T_D}{T_D + N T_s}(y[n]-y[n-1])$
 
 ## 6 Breve discussão sobre identificação de sistemas
 
