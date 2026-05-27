@@ -440,7 +440,7 @@ if $|u[n-1]| < u_{max}$ then $e_i[n]=e[n]$ else $e_i[n]=0$
 
 $u_p[n] = K_p e[n]$
 
-$u_i[n] = u_i[n-1] + \cfrac{Kp Ts/Ti}{e_i[n]}$
+$u_i[n] = u_i[n-1] + \cfrac{Kp Ts e_i[n]}{Ti}$
 
 $u_d[n] = \cfrac{Td}{Td + N Ts} u_d[n-1] - \cfrac{Kp N Td}{Td + N Ts} (y[n] - y[n-1])$
 
@@ -448,7 +448,7 @@ $u[n] = saturation(u_p[n] + u_i[n] + u_d[n])$
 
 Em python, uma forma de implementar isso é:
 
-```python
+```python 
 class Control:
     def __init__(self):    
         self.e = 0
